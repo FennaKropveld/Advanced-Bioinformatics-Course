@@ -1,0 +1,32 @@
+#assignment1: a >=3 table merge in SQL
+SELECT OrderDetails.ProductID, Orders.OrderID, Customers.CustomerName, Products.ProductName
+FROM Orders
+INNER JOIN OrderDetails
+ON Orders.OrderID=OrderDetails.OrderID
+INNER JOIN Customers
+ON Customers.CustomerID=Orders.CustomerID
+INNER JOIN Products
+ON Products.ProductID=OrderDetails.ProductID
+;
+
+
+
+#assignment2, creating a database in SQL
+CREATE TABLE Mutations
+(
+MutationID int,
+Chromosome int,
+StartPos INTEGER(9),
+StopPos INTEGER(9),
+MutationType CHARACTER(3)
+);
+
+
+
+CREATE TABLE Samples
+(
+SampleID int,
+MutationID int,
+TissueType Char,
+AquisitionDate TIMESTAMP,
+);
