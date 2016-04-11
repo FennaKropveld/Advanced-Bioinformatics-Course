@@ -1,0 +1,30 @@
+#load libraries
+library(plyr)
+library(ggplot2)
+library('cgdsr')
+
+#Assignment 1
+#First, i make a dataframe with x and y
+xplot <- data.frame(-10:10, 2*cos(-10:10) )
+
+#then using ggplot2, i plot the graph
+bp <- ggplot(xplot, aes(x= xplot$X.10.10, y=xplot$X2...cos..10.10.)) 
+bp + geom_line()+ geom_point(color='red', size = 3) + labs(y = "Y", x ="X", title = "X and 2*cos(X) ")+ theme(plot.title = element_text( size = 30, lineheight=.8, face="bold")) + theme(axis.title = element_text( size = 25, lineheight=.8, face="bold" ))
+
+
+#Assignment 2
+#first i need to load the cgds database
+mycgds = CGDS("http://www.cbioportal.org/")
+#grab the list of studies from the database, and select study nr 116 ("thca_tcga")
+mycancerstudy = getCancerStudies(mycgds)[116,1]
+#from this study, i want case list 1 ("thca_tcga_3way_complete")
+mycaselist = getCaseLists(mycgds,mycancerstudy)[1,1]
+#and from the study "thca_tcga", i want genetic profile 1 ("thca_tcga_mutations")
+mygeneticprofile = getGeneticProfiles(mycgds,mycancerstudy)[1,1]
+#i collect the data in a data.frame called data
+data <- getProfileData(mycgds,'BRAF',mygeneticprofile,mycaselist)
+#using plyr, i can count the occurance of each mutation, and put it in a new data.frama called mutations
+mutations <-count(data, 'BRAF')
+#this can then easily be plotted with ggplot
+bp <- ggplot(mutations, aes(x=BRAF, y=freq))
+bp + geom_bar(stat='identity') + geom_text(aes(label=freq), vjust=-.5, color='black', size = 6) + labs(y = "frequency", x = "BRAF mutation", title = "frequencies of BRAF mutations in Thyroid TCGA")+ theme(plot.title = element_text( size = 25, lineheight=.8, face="bold")) + theme(axis.title = element_text( size = 15, lineheight=.8, face="bold" ))
