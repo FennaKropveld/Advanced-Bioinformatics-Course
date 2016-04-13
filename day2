@@ -1,9 +1,17 @@
-
+#assignment 1
 PYTHONPATH="/home/user/.guix-profile/lib/python2.7/site-packages:$HOME/opt/python/lib/python2.7/site-packages"
 python
 from pymongo import MongoClient
 client = MongoClient()
 db = client.PIK3CA
 cursor = db.vcf.find ()
+counter = 0
 for document in cursor:
-  
+  file = document["rec"]["ann"]
+  gene = "ENST00000263967"
+  if gene in file
+  counter += 1
+print counter, "instances found"
+
+
+#assignment 2
