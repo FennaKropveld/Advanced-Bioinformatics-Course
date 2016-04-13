@@ -26,3 +26,4 @@ for document in cursor:
   if (dp>7):
     open("filtered_samples.json", 'a') as myfile
     myfile.write(document)
+
