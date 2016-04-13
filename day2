@@ -10,7 +10,7 @@ for document in cursor:
   file = document["rec"]["ann"]
   gene = "ENST00000263967"
   if gene in file
-  counter += 1
+    counter += 1
 print counter, "instances found"
 
 
