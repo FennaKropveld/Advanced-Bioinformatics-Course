@@ -15,3 +15,13 @@ print counter, "instances found"
 
 
 #assignment 2
+PYTHONPATH="/home/user/.guix-profile/lib/python2.7/site-packages:$HOME/opt/python/lib/python2.7/site-packages"
+python
+from pymongo import MongoClient
+client = MongoClient()
+db = client.PIK3CA_adv
+cursor = db.vcf.find ()
+for document in cursor:
+  dp = document["rec"]["samples"][1]
+  if (dp>7):
+    
