@@ -24,4 +24,5 @@ cursor = db.vcf.find ()
 for document in cursor:
   dp = document["rec"]["samples"][1]
   if (dp>7):
-    
+    open("filtered_samples.json", 'a') as myfile
+    myfile.write(document)
