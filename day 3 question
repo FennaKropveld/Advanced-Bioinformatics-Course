@@ -1,0 +1,8 @@
+#the question is: what is the name of the teachers wife?
+SELECT ?name
+WHERE
+{
+  ?thisguy ?profession <http://mysupercooldatabase.com/ns#teacher>.
+  ?WHO <http://mysupercooldatabase.com/ns#wife_of> ?thisguy.
+  ?WHO <http://xmlns.com/foaf/0.1/name>  ?name.
+}
