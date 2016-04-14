@@ -1,0 +1,45 @@
+#sparql data
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://mysupercooldatabase.com/ns#> .
+:David_Kropveld_ID
+  :species foaf:Person;
+  foaf:name "David Kropveld";
+  foaf:age "66";
+  :adres "Hendrik Tollensstraat";
+  :husband_of :Wina_van_Sprang_ID;
+  :father_of :Fenna_Kropveld_ID;
+  :father_of :Anders_Kropveld_ID;
+  :profession :teacher.
+:Wina_van_Sprang_ID
+  :species foaf:Person;
+  foaf:name "Wina van Sprang";
+  foaf:age "60";
+  :adres "Hendrik Tollensstraat";
+  :wife_of :David_Kropveld_ID;
+  :mother_of :Anders_Kropveld_ID;
+  :mother_of :Fenna_Kropveld_ID.
+:Anders_Kropveld_ID
+  :species foaf:Person;
+  foaf:name "Anders Kropveld";
+  foaf:nick "Mandy";
+  foaf:age "21";
+  :adres "Hendrik Tollensstraat".
+:Fenna_Kropveld_ID
+  :species foaf:Person;
+  foaf:name "Fenna Kropveld";
+  foaf:nick "Bennie";
+  foaf:age "24";
+  :adres "Hendrik Tollensstraat";
+  :adres "Europaplein".
+:Rex
+  :species "dog";
+  foaf:name "Rex";
+  :adres "Hendrik Tollensstraat".
+:An_van_Sprang_ID
+  :species foaf:Person;
+  foaf:name "An van Sprang";
+  foaf:age "59";
+  :adres "Zilverstraat";
+  :wife_of :Stef_Verbraecken_ID;
+  :mother_of :Ida_Verbraecken_ID;
+  :mother_of :Roos_VerbraeckenID.	
